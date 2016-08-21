@@ -1,0 +1,12 @@
+.userCard {
+  width: 200px;
+  height: 150px;
+  background: red;
+  border: 1px solid black;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.favorite {
+    background-color: lightblue
+}

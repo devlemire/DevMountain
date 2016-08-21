@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="AvengerApp">
+  <head>
+    <!--TITLE-->
+    <title>Avengers App</title>
+
+    <!--METAS-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--STYLES-->
+    <link rel="stylesheet" href="./style/reset.css" />
+    <link rel="stylesheet" href="./style/style.css" />
+  </head>
+
+  <input type="text" ng-model='filterText'></input>
+
+  <button ng-click='getHeroes()'>Get Heroes</button>
+
+  <body ng-controller="MainControl">
+    <div class='hero-wrapper'>
+      <div class='heroCard' ng-repeat='hero in teamAvengers | filter: {name: filterText}'>
+        <h3 class="heroName">{{ hero.name }}</h3>
+        <img class="heroImg" ng-src="{{ hero.thumbnail.path }}.{{ hero.thumbnail.extension }}" />
+        <h4>Description</h4>
+        <p class="heroDescription">{{ hero.description || "No description" }}</p>
+      </div>
+    </div>
+
+
+
+
+
+
+
+    <!--ANGULAR-->
+    <script src="./script/angular.js"></script>
+    <!--APP-->
+    <script src="./app/AvengerApp.js"></script>
+    <!--CONTROLLERS-->
+    <script src="./app/controller/MainControl.js"></script>
+    <!--SERVICES-->
+    <script src="./app/service/dataService.js"></script>
+  </body>
+</html>

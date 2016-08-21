@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="routingApp">
+	<head>
+  	<!--TITLE-->
+  	<title>UI-ROUTING</title>
+
+  	<!--METAS-->
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<meta charset="utf-8">
+
+  	<!--STYLES-->
+  	<!-- <link rel="stylesheet" href="./style/reset.css" /> -->
+  	<link rel="stylesheet" href="./style/style.css" />
+	</head>
+
+	<body>
+
+    <div class="menu">
+        <ul>
+            <li><a ui-sref="home">Home</a></li>
+            <li>
+                Products
+                <ul>
+                    <li><a ui-sref="products({id: 'shoes'})">Shoes</a></li>
+                    <li><a ui-sref="products({id: 'socks'})">Socks</a></li>
+                </ul>
+            </li>
+            <li><a ui-sref="settings"> Settings </a></li>
+        </ul>
+    </div>
+
+    <div class="view-container">
+        <div ui-view></div>
+    </div>
+
+
+	<!--FRAMEWORK-->
+	<script src="./script/angular.js"></script>
+  <!--UI ROUTER-->
+  <script src="./script/ui-router.js"></script>
+	<!--ANGULAR APP-->
+	<script src="./app/app.js"></script>
+  <!--ANGULAR ROUTER-->
+  <script src="./app/router.js"></script>
+	<!--ANGULAR CONTROLLER-->
+  <script src="./app/controller/home/homeCtrl.js"></script>
+  <script src="./app/controller/products/productsCtrl.js"></script>
+  <script src="./app/controller/settings/settingsCtrl.js"></script>
+  <!--ANGULAR SERVICE-->
+  <script src="./app/service/products/productsSrvc.js"></script>
+	</body>
+</html>

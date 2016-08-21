@@ -1,0 +1,156 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '--save',
+1 verbose cli   'gulp',
+1 verbose cli   'gulp-concact' ]
+2 info using npm@3.9.5
+3 info using node@v6.2.2
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData gulp
+8 silly fetchPackageMetaData gulp-concact
+9 silly fetchNamedPackageData gulp
+10 silly mapToRegistry name gulp
+11 silly mapToRegistry using default registry
+12 silly mapToRegistry registry https://registry.npmjs.org/
+13 silly mapToRegistry data Result {
+13 silly mapToRegistry   raw: 'gulp',
+13 silly mapToRegistry   scope: null,
+13 silly mapToRegistry   name: 'gulp',
+13 silly mapToRegistry   rawSpec: '',
+13 silly mapToRegistry   spec: 'latest',
+13 silly mapToRegistry   type: 'tag' }
+14 silly mapToRegistry uri https://registry.npmjs.org/gulp
+15 silly fetchNamedPackageData gulp-concact
+16 silly mapToRegistry name gulp-concact
+17 silly mapToRegistry using default registry
+18 silly mapToRegistry registry https://registry.npmjs.org/
+19 silly mapToRegistry data Result {
+19 silly mapToRegistry   raw: 'gulp-concact',
+19 silly mapToRegistry   scope: null,
+19 silly mapToRegistry   name: 'gulp-concact',
+19 silly mapToRegistry   rawSpec: '',
+19 silly mapToRegistry   spec: 'latest',
+19 silly mapToRegistry   type: 'tag' }
+20 silly mapToRegistry uri https://registry.npmjs.org/gulp-concact
+21 verbose request uri https://registry.npmjs.org/gulp-concact
+22 verbose request no auth needed
+23 info attempt registry request try #1 at 2:30:44 PM
+24 verbose request id 684bd87fe90b57b2
+25 http request GET https://registry.npmjs.org/gulp-concact
+26 verbose request uri https://registry.npmjs.org/gulp
+27 verbose request no auth needed
+28 info attempt registry request try #1 at 2:30:44 PM
+29 verbose etag "43RWGEARGWUG3T6P84N2QPA1V"
+30 http request GET https://registry.npmjs.org/gulp
+31 http 304 https://registry.npmjs.org/gulp
+32 verbose headers { date: 'Wed, 17 Aug 2016 20:30:44 GMT',
+32 verbose headers   via: '1.1 varnish',
+32 verbose headers   'cache-control': 'max-age=300',
+32 verbose headers   etag: '"43RWGEARGWUG3T6P84N2QPA1V"',
+32 verbose headers   age: '31',
+32 verbose headers   connection: 'keep-alive',
+32 verbose headers   'x-served-by': 'cache-ord1744-ORD',
+32 verbose headers   'x-cache': 'HIT',
+32 verbose headers   'x-cache-hits': '1',
+32 verbose headers   'x-timer': 'S1471465844.321590,VS0,VE0',
+32 verbose headers   vary: 'Accept-Encoding' }
+33 silly get cb [ 304,
+33 silly get   { date: 'Wed, 17 Aug 2016 20:30:44 GMT',
+33 silly get     via: '1.1 varnish',
+33 silly get     'cache-control': 'max-age=300',
+33 silly get     etag: '"43RWGEARGWUG3T6P84N2QPA1V"',
+33 silly get     age: '31',
+33 silly get     connection: 'keep-alive',
+33 silly get     'x-served-by': 'cache-ord1744-ORD',
+33 silly get     'x-cache': 'HIT',
+33 silly get     'x-cache-hits': '1',
+33 silly get     'x-timer': 'S1471465844.321590,VS0,VE0',
+33 silly get     vary: 'Accept-Encoding' } ]
+34 verbose etag https://registry.npmjs.org/gulp from cache
+35 verbose get saving gulp to /Users/jameslemire/.npm/registry.npmjs.org/gulp/.cache.json
+36 verbose correctMkdir /Users/jameslemire/.npm correctMkdir not in flight; initializing
+37 http 404 https://registry.npmjs.org/gulp-concact
+38 verbose headers { 'content-type': 'application/json',
+38 verbose headers   'cache-control': 'max-age=0',
+38 verbose headers   'content-length': '2',
+38 verbose headers   'accept-ranges': 'bytes',
+38 verbose headers   date: 'Wed, 17 Aug 2016 20:30:44 GMT',
+38 verbose headers   via: '1.1 varnish',
+38 verbose headers   age: '0',
+38 verbose headers   connection: 'keep-alive',
+38 verbose headers   'x-served-by': 'cache-ord1741-ORD',
+38 verbose headers   'x-cache': 'MISS',
+38 verbose headers   'x-cache-hits': '0',
+38 verbose headers   'x-timer': 'S1471465844.321294,VS0,VE35',
+38 verbose headers   vary: 'Accept-Encoding' }
+39 silly get cb [ 404,
+39 silly get   { 'content-type': 'application/json',
+39 silly get     'cache-control': 'max-age=0',
+39 silly get     'content-length': '2',
+39 silly get     'accept-ranges': 'bytes',
+39 silly get     date: 'Wed, 17 Aug 2016 20:30:44 GMT',
+39 silly get     via: '1.1 varnish',
+39 silly get     age: '0',
+39 silly get     connection: 'keep-alive',
+39 silly get     'x-served-by': 'cache-ord1741-ORD',
+39 silly get     'x-cache': 'MISS',
+39 silly get     'x-cache-hits': '0',
+39 silly get     'x-timer': 'S1471465844.321294,VS0,VE35',
+39 silly get     vary: 'Accept-Encoding' } ]
+40 silly fetchPackageMetaData Error: Registry returned 404 for GET on https://registry.npmjs.org/gulp-concact
+40 silly fetchPackageMetaData     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+40 silly fetchPackageMetaData     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:242:14)
+40 silly fetchPackageMetaData     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+40 silly fetchPackageMetaData     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:200:22)
+40 silly fetchPackageMetaData     at emitTwo (events.js:106:13)
+40 silly fetchPackageMetaData     at Request.emit (events.js:191:7)
+40 silly fetchPackageMetaData     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1067:10)
+40 silly fetchPackageMetaData     at emitOne (events.js:101:20)
+40 silly fetchPackageMetaData     at Request.emit (events.js:188:7)
+40 silly fetchPackageMetaData     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:988:12)
+40 silly fetchPackageMetaData  error for gulp-concact { Error: Registry returned 404 for GET on https://registry.npmjs.org/gulp-concact
+40 silly fetchPackageMetaData     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+40 silly fetchPackageMetaData     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:242:14)
+40 silly fetchPackageMetaData     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+40 silly fetchPackageMetaData     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:200:22)
+40 silly fetchPackageMetaData     at emitTwo (events.js:106:13)
+40 silly fetchPackageMetaData     at Request.emit (events.js:191:7)
+40 silly fetchPackageMetaData     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1067:10)
+40 silly fetchPackageMetaData     at emitOne (events.js:101:20)
+40 silly fetchPackageMetaData     at Request.emit (events.js:188:7)
+40 silly fetchPackageMetaData     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:988:12) pkgid: 'gulp-concact', statusCode: 404, code: 'E404' }
+41 silly rollbackFailedOptional Starting
+42 silly rollbackFailedOptional Finishing
+43 silly runTopLevelLifecycles Starting
+44 silly runTopLevelLifecycles Finishing
+45 silly install printInstalled
+46 verbose stack Error: Registry returned 404 for GET on https://registry.npmjs.org/gulp-concact
+46 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+46 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:242:14)
+46 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+46 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:200:22)
+46 verbose stack     at emitTwo (events.js:106:13)
+46 verbose stack     at Request.emit (events.js:191:7)
+46 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1067:10)
+46 verbose stack     at emitOne (events.js:101:20)
+46 verbose stack     at Request.emit (events.js:188:7)
+46 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:988:12)
+47 verbose statusCode 404
+48 verbose pkgid gulp-concact
+49 verbose cwd /Users/jameslemire/Desktop/DevMountain/DevMountain/Brown-Bag-Lectures/sass-es6-brown-bag
+50 error Darwin 15.6.0
+51 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "--save" "gulp" "gulp-concact"
+52 error node v6.2.2
+53 error npm  v3.9.5
+54 error code E404
+55 error 404 Registry returned 404 for GET on https://registry.npmjs.org/gulp-concact
+56 error 404
+57 error 404 'gulp-concact' is not in the npm registry.
+58 error 404 You should bug the author to publish it (or use the name yourself!)
+59 error 404 Note that you can also install from a
+60 error 404 tarball, folder, http url, or git url.
+61 verbose exit [ 1, true ]

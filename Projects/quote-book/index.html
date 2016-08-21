@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app='quoteApp'>
+	<head>
+		<!--TITLE-->
+		<title>Quote Book</title>
+
+		<!--METAS-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+
+		<!--STYLES-->
+		<link rel="stylesheet" href="./style/reset.css" />
+		<link rel="stylesheet" href="./style/style.css" />
+	</head>
+	<body ng-controller='MainController'>
+
+    <section class="quotes">
+      <p>Filter Quotes:</p>
+      <input type="text" ng-model="quoteFilter"></input>
+      <p>Add Quote:</p>
+      <input type="text" ng-model="quoteText"></input>
+      <button id="addQuoteBtn" ng-click="addQuote(quoteText)">Add</button>
+    </section>
+
+    <div class="wrapper">
+      <div class="displayQuote" ng-repeat="quote in quotes | filter: quoteFilter">
+        <p>{{quote.text}}</p>
+        <p id="author">{{quote.author}}</p>
+        <button class="removeBtn" ng-click="removeQuote($index)">X</button>
+      </div>
+    </div>
+
+		<!--ANGULAR-->
+		<script src="./script/angular.js"></script>
+    <!--APP-->
+    <script src="./app/app.js"></script>
+    <!--CONTROLLERS-->
+    <script src="./app/controller/MainController.js"></script>
+    <!--SERVICES-->
+    <script src="./app/service/MainService.js"></script>
+	</body>
+</html>

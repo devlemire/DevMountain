@@ -1,0 +1,40 @@
+.brand-logo {
+  margin-left: 20px;
+}
+
+.page-footer {
+    position: fixed;
+    bottom:0;
+    left:0;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.main-container {
+  height: 60vh;
+  overflow: scroll;
+}
+
+.view-container {
+    display: flex;
+    justify-content: center;
+    /*color: #fff;
+    background: #ccc;*/
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.main {
+  margin-bottom: 50px;
+}
+
+.test-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background: blue;
+}

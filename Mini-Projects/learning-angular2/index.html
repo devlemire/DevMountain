@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app='avengersApp'>
+	<head>
+		<title>Avengers App</title>
+		<link rel="stylesheet" type="text/css" href="styles/base.css">
+		<link rel="stylesheet" type="text/css" href="styles/styles.css">
+	</head>
+	<body ng-controller='MainCtrl'>
+
+		<section class="module parallax parallax-1">
+			<div class="container">
+				<h1>Meet The Avengers</h1>
+			</div>
+		</section>
+
+		<div class="group">
+			<input type="text" required ng-model="myFilter">
+			<span class="highlight"></span>
+			<span class="bar"></span>
+			<label>Name</label>
+		</div>
+
+		<div class="hero-wrapper">
+			<div class="heroCard" ng-repeat="hero in avengers | filter: {name: myFilter}">
+				<h3 class="heroName">{{ hero.name }}</h3>
+				<div class="hero-image">
+					<img ng-src="{{ hero.thumbnail.path }}.{{ hero.thumbnail.extension }}"/>
+				</div>
+				<h4 class="description">Description</h4>
+				<p class="description-text">{{ hero.description || "This hero needs no description!"}}</p>
+			</div>
+		</div>
+
+	<!-- angular -->
+	<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.js'></script>
+	<script type='text/javascript' src='scripts/app.js'></script>
+	<!-- Controllers -->
+	<script type='text/javascript' src='scripts/MainCtrl.js'></script>
+	<!-- Services -->
+	<script type='text/javascript' src='scripts/dataService.js'></script>
+	<!-- Directives -->
+
+	</body>
+</html>

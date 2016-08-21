@@ -1,0 +1,148 @@
+.parallax {
+    height: 600px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    margin-top:60px;
+}
+.parallax h1 {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 75px;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.parallax-1 {
+    background-image: url("http://img.photobucket.com/albums/v313/Spider-Man9x17/AvengersFanFicTeamRoof7.jpg");
+}
+.container {
+    width: 100%;
+    text-align: center;
+}
+.group {
+    position: relative;
+    top: 30px;
+    width: 315px;
+    margin: 0 auto;
+    margin-bottom: 55px;
+}
+input {
+    font-size:18px;
+    background-color: #EEEEEE;
+    padding:10px 10px 10px 5px;
+    display:block;
+    width:300px;
+    border:none;
+    border-bottom:1px solid #757575;
+}
+input:focus {
+    outline:none;
+}
+label {
+    color:#999;
+    font-size:18px;
+    font-weight:normal;
+    position:absolute;
+    pointer-events:none;
+    left:5px;
+    top:10px;
+    transition:0.2s ease all;
+    -moz-transition:0.2s ease all;
+    -webkit-transition:0.2s ease all;
+}
+input:focus ~ label, input:valid ~ label {
+    top:-20px;
+    font-size:14px;
+    color:#5264AE;
+}
+.bar {
+    position:relative; display:block; width:300px;
+}
+.bar:before, .bar:after {
+    content:'';
+    height:2px;
+    width:0;
+    bottom:1px;
+    position:absolute;
+    background:#5264AE;
+    transition:0.2s ease all;
+    -moz-transition:0.2s ease all;
+    -webkit-transition:0.2s ease all;
+}
+.bar:before {
+    left:50%;
+}
+.bar:after {
+    right:50%;
+}
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+    width:50%;
+}
+.highlight {
+    position:absolute;
+    height:60%;
+    width:100px;
+    top:25%;
+    left:0;
+    pointer-events:none;
+    opacity:0.5;
+}
+input:focus ~ .highlight {
+    -webkit-animation:inputHighlighter 0.3s ease;
+    -moz-animation:inputHighlighter 0.3s ease;
+    animation:inputHighlighter 0.3s ease;
+}
+@-webkit-keyframes inputHighlighter {
+    from { background:#5264AE; }
+    to    { width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+    from { background:#5264AE; }
+    to    { width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+    from { background:#5264AE; }
+    to    { width:0; background:transparent; }
+}
+.hero-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.heroCard {
+    width: 300px;
+    background-color: white;
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.2s ease-in-out;
+}
+.heroCard:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+.heroName {
+    color: #D11C24;
+}
+.description-text {
+    font-size: .7em;
+}
+.hero-image {
+    height: 200px;
+    width: 200px;
+    margin: 0 auto;
+}
+img {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #0A2933;
+    border-radius: 50%;
+    transition-property: border-radius;
+    transition-duration: 200ms;
+    transition-timing-function: linear;
+}

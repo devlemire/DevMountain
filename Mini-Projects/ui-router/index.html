@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7 "> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie10 lt-ie9"> <![endif]-->
+<!--[if IE 9]><html class="no-js lt-ie10"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" ng-app="routerApp">
+	<!--<![endif]-->
+
+	<head>
+
+		<!-- Basic Page Needs -->
+		<meta charset="utf-8">
+		<title>UI | ROUTER</title>
+		<meta name="description">
+		<meta name="author">
+
+		<!-- Mobile Specific Metas -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+		<!--RESET-->
+		<link rel="stylesheet" href="./css/reset.css">
+
+		<!-- FONTS -->
+		<link rel='stylesheet' id='Roboto-css' href='http://fonts.googleapis.com/css?family=Roboto:100,300,400,400italic,700'>
+		<link rel='stylesheet' id='Patua+One-css' href='http://fonts.googleapis.com/css?family=Patua+One:100,300,400,400italic,700'>
+		<link rel='stylesheet' id='Lato-css' href='http://fonts.googleapis.com/css?family=Lato:1,300,400,400italic,700,700italic'>
+		<link rel='stylesheet' id='Noto+Serif-css' href='http://fonts.googleapis.com/css?family=Noto+Serif:1,300,400,400italic,700,700italic'>
+
+		<!--ICONS-->
+		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+		<link rel="stylesheet" href="./css/custom.css">
+
+		<base href="/">
+
+
+	</head>
+
+	<body >
+
+	<!--Notice we dont have a controller on our elements. Thats because it will be in the route config -->
+	<!--NAV BAR-->
+	<div  >
+		<nav style="background:#999;">
+			<div class="nav-wrapper">
+				<!--Add ui-sref here-->
+				<a ui-sref="home" class="brand-logo">DevMountain</a>
+				<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+				<ul class="right hide-on-med-and-down">
+					<li><a ui-sref="studio">Studio</a></li>
+					<li><a ui-sref="projects({type: 'burgerTown'})">Projects</a></li>
+					<li><a >Contact</a></li>
+					<li><a >Pricing</a></li>
+				</ul>
+				<ul class="side-nav" id="mobile-demo">
+					<li><a >Studio</a></li>
+					<li><a >Projects</a></li>
+					<li><a >Contact</a></li>
+					<li><a >Pricing</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<!--MAIN CONTENT-->
+		<main class="main-container">
+
+			<ui-view></ui-view>
+
+		</main>
+
+		<!--FOOTER-->
+		<footer class="page-footer"  style="background:#999;">
+			<div class="container">
+				<div class="row">
+					<div class="col l6 s12">
+						<h5 class="white-text">Footer Content</h5>
+						<p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+					</div>
+					<div class="col l4 offset-l2 s12">
+						<h5 class="white-text">Links</h5>
+						<ul>
+							<li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+							<li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+							<li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+							<li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="footer-copyright">
+				<div class="container">
+					© 2014 Copyright Text
+					<a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+				</div>
+			</div>
+		</footer>
+
+
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+	<!-- Compiled and minified JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+	<script src="./custom.js"></script>
+
+	<!--ANGULAR ANGULAR -->
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
+
+	<!--UI ROUTER-->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.14/angular-ui-router.js"></script>
+	<script type="text/javascript" src="angularStuff/app.js"></script>
+	<script type="text/javascript" src="angularStuff/mainCtrl.js"></script>
+	<script src="./angularStuff/srvc.js"></script>
+	<script type="text/javascript" src="angularStuff/routes.js"></script>
+
+
+
+
+
+
+
+
+
+	</body>
+
+</html>

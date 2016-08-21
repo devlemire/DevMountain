@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html ng-app='FriendList'>
+<head>
+  <title>Angular Friends</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+  <h1>The <strong>facebook</strong> Friend Machine</h1>
+
+  <div class="friends" ng-controller='MainControl'>
+    <form class="form-inline searchForm" role="form">
+      <div class="form-group">
+        <input class="form-control" placeholder="Search Name" type="text" ng-model="filterFriend.name">
+        <input class="form-control" placeholder="Search Location" type="text" ng-model="filterFriend.current_location.name">
+
+        <br>
+        <select class="input-medium" ng-model="sortProp" ng-options="friend.value as friend.label for friend in myOptions">
+
+        </select>
+
+        <select class="input-medium" ng-model="sortProp">
+          <option value="name">Name</option>
+          <option value="friend_count">#Friends</option>
+          <option value="current_location.city">City</option>
+          <option value="current_location.state">State</option>
+          <option value="current_location.country">Country</option>
+        </select>
+
+        <select class="input-medium" ng-model="listProp">
+          <option value="">Descending</option>
+          <option value="-">Ascending</option>
+        </select>
+
+      </div>
+    </form>
+
+    <ul ng-repeat="friend in friends | filter: filterFriend | orderBy: sortProp : listProp">
+      <li class='friend'>
+        <img class="profile-pic" src='{{ friend.pic_square }}'>
+
+        <h3>{{ friend.name }}</h3>
+
+        <div class="location">
+          Location: {{friend.current_location.city}}, {{friend.current_location.state}}, {{friend.current_location.country}}
+        </div>
+
+        <div class="status">
+          Status: {{ friend.status.message }} <span class="hashtag">#ihateprovo</span>
+        </div>
+
+        <div class="num-friends">
+          Friends: {{ friend.friend_count }}
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+  <script src="app.js"></script>
+  <script src="FriendController.js"></script>
+</body>
+</html>
