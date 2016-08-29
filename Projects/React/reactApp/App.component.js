@@ -1,40 +1,51 @@
 import React from 'react';
-import ReactDOM from 'react-dom'; //One time import on the main app file
+import ReactDOM from 'react-dom';
 
 var App = React.createClass({
   getInitialState() {
-    return ({
-      name: 'James',
-      tempName: '',
-      list: ["1", "2", "3"]
+    return({
+      inputVal: "",
+      tasks: []
     })
   },
   render() {
     return (
       <div>
-        <div onClick = {this.handleClick}>
-          Hello World
-          {this.state.name}
-        </div>
-        <input onChange={this.handleChange}/>
-        {this.state.list.map(value => {
+        <p>Tasks</p>
+        {this.state.tasks.map((value, index) => {
           return (
-            <div key={value}>{value}</div>
+            <div
+              key={index}
+              onClick={this.handleRemove.bind(this, index)}
+            >
+              {value}
+            </div>
           )
         })}
+        <input
+          value={this.state.inputVal}
+          onChange={this.handleChange}
+        />
+        <button onClick={this.handleClick}>Add Task</button>
       </div>
     )
   },
-  handleClick() {
+  handleRemove(removeIndex) {
     this.setState({
-      name: this.state.tempName
+      tasks: this.state.tasks.filter((value, index) => index !== removeIndex)
     })
   },
   handleChange(event) {
     this.setState({
-      tempName: event.target.value
+      inputVal: event.target.value
+    })
+  },
+  handleClick() {
+    this.setState({
+      tasks: this.state.tasks.concat([this.state.inputVal]),
+      inputVal: ""
     })
   }
 });
 
-ReactDOM.render(<App />, document.getElementById("app")); //Based off our var App name
+ReactDOM.render(<App />, document.getElementById('app'));

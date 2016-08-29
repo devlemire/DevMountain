@@ -56,50 +56,67 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	//One time import on the main app file
-	
 	var App = _react2.default.createClass({
 	  displayName: 'App',
 	  getInitialState: function getInitialState() {
 	    return {
-	      name: 'James',
-	      tempName: '',
-	      list: ["1", "2", "3"]
+	      inputVal: "",
+	      tasks: []
 	    };
 	  },
 	  render: function render() {
+	    var _this = this;
+	
 	    return _react2.default.createElement(
 	      'div',
 	      null,
 	      _react2.default.createElement(
-	        'div',
-	        { onClick: this.handleClick },
-	        'Hello World',
-	        this.state.name
+	        'p',
+	        null,
+	        'Tasks'
 	      ),
-	      _react2.default.createElement('input', { onChange: this.handleChange }),
-	      this.state.list.map(function (value) {
+	      this.state.tasks.map(function (value, index) {
 	        return _react2.default.createElement(
 	          'div',
-	          { key: value },
+	          {
+	            key: index,
+	            onClick: _this.handleRemove.bind(_this, index)
+	          },
 	          value
 	        );
-	      })
+	      }),
+	      _react2.default.createElement('input', {
+	        value: this.state.inputVal,
+	        onChange: this.handleChange
+	      }),
+	      _react2.default.createElement(
+	        'button',
+	        { onClick: this.handleClick },
+	        'Add Task'
+	      )
 	    );
 	  },
-	  handleClick: function handleClick() {
+	  handleRemove: function handleRemove(removeIndex) {
 	    this.setState({
-	      name: this.state.tempName
+	      tasks: this.state.tasks.filter(function (value, index) {
+	        return index !== removeIndex;
+	      })
 	    });
 	  },
 	  handleChange: function handleChange(event) {
 	    this.setState({
-	      tempName: event.target.value
+	      inputVal: event.target.value
+	    });
+	  },
+	  handleClick: function handleClick() {
+	    this.setState({
+	      tasks: this.state.tasks.concat([this.state.inputVal]),
+	      inputVal: ""
 	    });
 	  }
 	});
 	
-	_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById("app")); //Based off our var App name
+	_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('app'));
 
 /***/ },
 /* 1 */
