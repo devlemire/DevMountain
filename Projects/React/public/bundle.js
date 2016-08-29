@@ -60,12 +60,42 @@
 	
 	var App = _react2.default.createClass({
 	  displayName: 'App',
+	  getInitialState: function getInitialState() {
+	    return {
+	      name: 'James',
+	      tempName: '',
+	      list: ["1", "2", "3"]
+	    };
+	  },
 	  render: function render() {
 	    return _react2.default.createElement(
 	      'div',
 	      null,
-	      'Hello World'
+	      _react2.default.createElement(
+	        'div',
+	        { onClick: this.handleClick },
+	        'Hello World',
+	        this.state.name
+	      ),
+	      _react2.default.createElement('input', { onChange: this.handleChange }),
+	      this.state.list.map(function (value) {
+	        return _react2.default.createElement(
+	          'div',
+	          { key: value },
+	          value
+	        );
+	      })
 	    );
+	  },
+	  handleClick: function handleClick() {
+	    this.setState({
+	      name: this.state.tempName
+	    });
+	  },
+	  handleChange: function handleChange(event) {
+	    this.setState({
+	      tempName: event.target.value
+	    });
 	  }
 	});
 	
