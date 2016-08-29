@@ -11,4 +11,4 @@ var App = React.createClass({
   }
 });
 
-ReactDOM.render(<App />);
+ReactDOM.render(<App />, document.getElementById("app")); //Based off our var App name

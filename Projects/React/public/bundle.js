@@ -69,7 +69,7 @@
 	  }
 	});
 	
-	_reactDom2.default.render(_react2.default.createElement(App, null));
+	_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById("app")); //Based off our var App name
 
 /***/ },
 /* 1 */
