@@ -12,7 +12,7 @@ var DayTwo = React.createClass({
 	render() {
 		return (
 			<div>
-				<CompLifeCycle />
+				<AsyncData />
 			</div>
 		)
 	}
