@@ -58,23 +58,23 @@
 	
 	var _App2 = _interopRequireDefault(_App);
 	
-	var _App3 = __webpack_require__(160);
+	var _App3 = __webpack_require__(162);
 	
 	var _App4 = _interopRequireDefault(_App3);
 	
-	var _App5 = __webpack_require__(161);
+	var _App5 = __webpack_require__(163);
 	
 	var _App6 = _interopRequireDefault(_App5);
 	
-	var _App7 = __webpack_require__(162);
+	var _App7 = __webpack_require__(164);
 	
 	var _App8 = _interopRequireDefault(_App7);
 	
-	var _App9 = __webpack_require__(164);
+	var _App9 = __webpack_require__(166);
 	
 	var _App10 = _interopRequireDefault(_App9);
 	
-	var _App11 = __webpack_require__(165);
+	var _App11 = __webpack_require__(167);
 	
 	var _App12 = _interopRequireDefault(_App11);
 	
@@ -86,7 +86,7 @@
 			return _react2.default.createElement(
 				"div",
 				null,
-				_react2.default.createElement(_App2.default, null)
+				_react2.default.createElement(_App4.default, null)
 			);
 		}
 	});
@@ -19781,11 +19781,11 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Child = __webpack_require__(166);
+	var _Child = __webpack_require__(160);
 	
 	var _Child2 = _interopRequireDefault(_Child);
 	
-	var _Map = __webpack_require__(167);
+	var _Map = __webpack_require__(161);
 	
 	var _Map2 = _interopRequireDefault(_Map);
 	
@@ -19834,10 +19834,10 @@
 /* 160 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 	
 	var _react = __webpack_require__(1);
@@ -19847,22 +19847,112 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = _react2.default.createClass({
-		displayName: "App",
+	  displayName: 'Child',
+	  getInitialState: function getInitialState() {
+	    return {
+	      temp: ''
+	    };
+	  },
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      null,
+	      _react2.default.createElement('input', { onChange: this.storeName, type: 'text' }),
+	      _react2.default.createElement(
+	        'button',
+	        { onClick: this.props.setDisplay.bind(null, this.state.temp) },
+	        'Set Display'
+	      )
+	    );
+	  },
+	  storeName: function storeName(e) {
+	    this.setState({
+	      temp: e.target.value
+	    });
+	  }
+	});
+
+/***/ },
+/* 161 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = _react2.default.createClass({
+	  displayName: 'Map',
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      null,
+	      _react2.default.createElement(
+	        'p',
+	        null,
+	        'Map'
+	      ),
+	      this.props.theList.map(function (value) {
+	        return _react2.default.createElement(
+	          'p',
+	          { key: value },
+	          value
+	        );
+	      })
+	    );
+	  }
+	});
+
+/***/ },
+/* 162 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _Child = __webpack_require__(168);
+	
+	var _Child2 = _interopRequireDefault(_Child);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = _react2.default.createClass({
+		displayName: 'App',
 		getInitialState: function getInitialState() {
 			return {
 				visible: false
 			};
 		},
+		componentWillMount: function componentWillMount() {
+			console.log('will mount - parent');
+		},
+		componentDidMount: function componentDidMount() {
+			console.log('mounted - parent');
+		},
 		render: function render() {
 			return _react2.default.createElement(
-				"div",
+				'div',
 				null,
 				_react2.default.createElement(
-					"button",
+					'button',
 					{ onClick: this.onOff },
-					"Show/Hide Child"
+					'Show/Hide Child'
 				),
-				this.state.visible ? _react2.default.createElement(Child, null) : null
+				this.state.visible ? _react2.default.createElement(_Child2.default, null) : null
 			);
 		},
 		onOff: function onOff() {
@@ -19873,7 +19963,7 @@
 	});
 
 /***/ },
-/* 161 */
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -19915,7 +20005,7 @@
 	});
 
 /***/ },
-/* 162 */
+/* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -19928,7 +20018,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Display = __webpack_require__(163);
+	var _Display = __webpack_require__(165);
 	
 	var _Display2 = _interopRequireDefault(_Display);
 	
@@ -19954,7 +20044,7 @@
 	});
 
 /***/ },
-/* 163 */
+/* 165 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -19990,7 +20080,7 @@
 	});
 
 /***/ },
-/* 164 */
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -20018,7 +20108,7 @@
 	});
 
 /***/ },
-/* 165 */
+/* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -20045,13 +20135,13 @@
 	});
 
 /***/ },
-/* 166 */
+/* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+		value: true
 	});
 	
 	var _react = __webpack_require__(1);
@@ -20061,67 +20151,20 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = _react2.default.createClass({
-	  displayName: 'Child',
-	  getInitialState: function getInitialState() {
-	    return {
-	      temp: ''
-	    };
-	  },
-	  render: function render() {
-	    return _react2.default.createElement(
-	      'div',
-	      null,
-	      _react2.default.createElement('input', { onChange: this.storeName, type: 'text' }),
-	      _react2.default.createElement(
-	        'button',
-	        { onClick: this.props.setDisplay.bind(null, this.state.temp) },
-	        'Set Display'
-	      )
-	    );
-	  },
-	  storeName: function storeName(e) {
-	    this.setState({
-	      temp: e.target.value
-	    });
-	  }
-	});
-
-/***/ },
-/* 167 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = _react2.default.createClass({
-	  displayName: 'Map',
-	  render: function render() {
-	    return _react2.default.createElement(
-	      'div',
-	      null,
-	      _react2.default.createElement(
-	        'p',
-	        null,
-	        'Map'
-	      ),
-	      this.props.theList.map(function (value) {
-	        return _react2.default.createElement(
-	          'p',
-	          { key: value },
-	          value
-	        );
-	      })
-	    );
-	  }
+		displayName: 'Child',
+		componentWillMount: function componentWillMount() {
+			console.log('will mount - child');
+		},
+		componentDidMount: function componentDidMount() {
+			console.log('mounted - child');
+		},
+		render: function render() {
+			return _react2.default.createElement(
+				'h1',
+				null,
+				'Child Component'
+			);
+		}
 	});
 
 /***/ }
