@@ -54,10 +54,20 @@
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
+	var _list = __webpack_require__(172);
+	
+	var _list2 = _interopRequireDefault(_list);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var App = _react2.default.createClass({
 	  displayName: 'App',
+	  getInitialState: function getInitialState() {
+	    return {
+	      pokemons: [],
+	      pokeValue: ''
+	    };
+	  },
 	  render: function render() {
 	    return _react2.default.createElement(
 	      'div',
@@ -65,9 +75,35 @@
 	      _react2.default.createElement(
 	        'p',
 	        null,
-	        'Hello World'
-	      )
+	        'Add pokemon'
+	      ),
+	      _react2.default.createElement('input', { onChange: this.pokeInput, value: this.state.pokeValue, type: 'text' }),
+	      _react2.default.createElement(
+	        'button',
+	        { onClick: this.addPoke },
+	        'Add Pokemon'
+	      ),
+	      _react2.default.createElement('br', null),
+	      _react2.default.createElement(_list2.default, { removePoke: this.removePoke, pokemons: this.state.pokemons })
 	    );
+	  },
+	  pokeInput: function pokeInput(e) {
+	    this.setState({
+	      pokeValue: e.target.value
+	    });
+	  },
+	  addPoke: function addPoke() {
+	    this.setState({
+	      pokemons: this.state.pokemons.concat([{ id: this.state.pokemons.length - 1, pokemon: this.state.pokeValue }]),
+	      pokeValue: ''
+	    });
+	  },
+	  removePoke: function removePoke(removeIndex) {
+	    this.setState({
+	      pokemons: this.state.pokemons.filter(function (value, index) {
+	        return index !== removeIndex;
+	      })
+	    });
 	  }
 	});
 	
@@ -21443,6 +21479,41 @@
 	
 	module.exports = ReactDOMNullInputValuePropHook;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 172 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = _react2.default.createClass({
+	  displayName: 'list',
+	  render: function render() {
+	    var _this = this;
+	
+	    return _react2.default.createElement(
+	      'div',
+	      null,
+	      this.props.pokemons.map(function (value, index) {
+	        return _react2.default.createElement(
+	          'p',
+	          { onClick: _this.props.removePoke.bind(null, index), key: value.id },
+	          value.pokemon
+	        );
+	      })
+	    );
+	  }
+	});
 
 /***/ }
 /******/ ]);
