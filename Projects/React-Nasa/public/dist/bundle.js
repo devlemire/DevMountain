@@ -56,6 +56,14 @@
 	
 	var _reactRouter = __webpack_require__(172);
 	
+	var _alderaan = __webpack_require__(235);
+	
+	var _alderaan2 = _interopRequireDefault(_alderaan);
+	
+	var _leia = __webpack_require__(236);
+	
+	var _leia2 = _interopRequireDefault(_leia);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var App = _react2.default.createClass({
@@ -67,7 +75,16 @@
 	      _react2.default.createElement(
 	        'p',
 	        null,
-	        'Hello'
+	        'Starwars API - Routes'
+	      ),
+	      _react2.default.createElement(
+	        _reactRouter.Router,
+	        null,
+	        _react2.default.createElement(
+	          _reactRouter.Route,
+	          { path: 'alderaan', component: _alderaan2.default },
+	          _react2.default.createElement(_reactRouter.Route, { path: 'leia', component: _leia2.default })
+	        )
 	      )
 	    );
 	  }
@@ -27096,6 +27113,71 @@
 	
 	exports.default = (0, _createRouterHistory2.default)(_createHashHistory2.default);
 	module.exports = exports['default'];
+
+/***/ },
+/* 235 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = _react2.default.createClass({
+	  displayName: "alderaan",
+	  render: function render() {
+	    return _react2.default.createElement(
+	      "div",
+	      null,
+	      _react2.default.createElement("img", { className: "planet-image", src: "./app/component/alderaan/alderaan.jpg" }),
+	      _react2.default.createElement(
+	        "p",
+	        null,
+	        "Alderaan"
+	      ),
+	      this.props.children
+	    );
+	  }
+	});
+
+/***/ },
+/* 236 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = _react2.default.createClass({
+	  displayName: "leia",
+	  render: function render() {
+	    return _react2.default.createElement(
+	      "div",
+	      null,
+	      _react2.default.createElement("img", { src: "./app/component/alderaan/leia.jpg" }),
+	      _react2.default.createElement(
+	        "p",
+	        null,
+	        "Leia"
+	      )
+	    );
+	  }
+	});
 
 /***/ }
 /******/ ]);
