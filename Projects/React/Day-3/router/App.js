@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute } from 'react-router';
+import { Router, Route } from 'react-router';
 import RouteOne from './RouteOne.js';
 import RouteTwo from './RouteTwo.js';
+
 var App = React.createClass({
 	render() {
 		return (
