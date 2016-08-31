@@ -27,6 +27,7 @@
     ]
   },
   "dependencies": {
+    "axios": "^0.14.0",
     "jsx-loader": "^0.13.2",
     "react": "^15.0.2",
     "react-dom": "^15.0.2",
