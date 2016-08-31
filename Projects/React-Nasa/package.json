@@ -1,12 +1,12 @@
 {
   "name": "devmtnreactstarter",
   "version": "0.0.0",
-  "description": "To help get started on react",
+  "description": "Basic React Files",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Dan Kesler",
+  "author": "James Lemire",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.3.26",
