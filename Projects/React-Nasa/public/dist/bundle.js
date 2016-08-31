@@ -67,27 +67,27 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var App = _react2.default.createClass({
-	  displayName: 'App',
-	  render: function render() {
-	    return _react2.default.createElement(
-	      'div',
-	      null,
-	      _react2.default.createElement(
-	        'p',
-	        null,
-	        'Starwars API - Routes'
-	      ),
-	      _react2.default.createElement(
-	        _reactRouter.Router,
-	        null,
-	        _react2.default.createElement(
-	          _reactRouter.Route,
-	          { path: 'alderaan', component: _alderaan2.default },
-	          _react2.default.createElement(_reactRouter.Route, { path: 'leia', component: _leia2.default })
-	        )
-	      )
-	    );
-	  }
+		displayName: 'App',
+		render: function render() {
+			return _react2.default.createElement(
+				'div',
+				null,
+				_react2.default.createElement(
+					'p',
+					null,
+					'Starwars API - Routes'
+				),
+				_react2.default.createElement(
+					_reactRouter.Router,
+					null,
+					_react2.default.createElement(
+						_reactRouter.Route,
+						{ path: 'alderaan', component: _alderaan2.default },
+						_react2.default.createElement(_reactRouter.Route, { path: 'leia', component: _leia2.default })
+					)
+				)
+			);
+		}
 	});
 	
 	_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('app'));

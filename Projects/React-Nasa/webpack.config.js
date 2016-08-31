@@ -1,6 +1,6 @@
 module.exports = {
 	entry: {
-		main: './public/app/reactApp.js'
+		main: './public/app/reactApp.jsx'
 	},
 	output: {
 		filename: 'bundle.js',
@@ -8,17 +8,14 @@ module.exports = {
 	},
 	devtool: 'sourcemap',
 	module: {
-		loaders: [
-			{
-				test: /\.js$/,
-				exclude: /node_modules/,
-				loader: 'babel'
-			},
-			{
-				test: /\.css$/,
-				exclude: /node_modules/,
-				loader: 'css'
-			}
-		]
+		loaders: [{
+			test: /\.(js|jsx)$/,
+			exclude: /node_modules/,
+			loader: 'babel',
+		}, {
+			test: /\.css$/,
+			exclude: /node_modules/,
+			loader: 'css'
+		}]
 	}
 };
