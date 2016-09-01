@@ -46,6 +46,8 @@
 
 	'use strict';
 	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
@@ -56,36 +58,70 @@
 	
 	var _reactRouter = __webpack_require__(172);
 	
-	var _alderaan = __webpack_require__(235);
+	var _planetBrowser = __webpack_require__(235);
 	
-	var _alderaan2 = _interopRequireDefault(_alderaan);
+	var _planetBrowser2 = _interopRequireDefault(_planetBrowser);
 	
-	var _leia = __webpack_require__(236);
+	var _planetViewer = __webpack_require__(261);
 	
-	var _leia2 = _interopRequireDefault(_leia);
+	var _planetViewer2 = _interopRequireDefault(_planetViewer);
+	
+	var _Character = __webpack_require__(236);
+	
+	var _Character2 = _interopRequireDefault(_Character);
+	
+	var _planets = __webpack_require__(260);
+	
+	var _planets2 = _interopRequireDefault(_planets);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var planetWrapper = function (_React$Component) {
+		_inherits(planetWrapper, _React$Component);
+	
+		function planetWrapper(props) {
+			_classCallCheck(this, planetWrapper);
+	
+			var _this = _possibleConstructorReturn(this, (planetWrapper.__proto__ || Object.getPrototypeOf(planetWrapper)).call(this, props));
+	
+			console.log('PROPS', props);
+			return _this;
+		}
+	
+		_createClass(planetWrapper, [{
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(_planetViewer2.default, { img: this.props.route.img, name: this.props.route.path });
+			}
+		}]);
+	
+		return planetWrapper;
+	}(_react2.default.Component);
+	
 	var App = _react2.default.createClass({
 		displayName: 'App',
+		getInitialState: function getInitialState() {
+			return {
+				planets: _planets2.default
+			};
+		},
 		render: function render() {
 			return _react2.default.createElement(
 				'div',
 				null,
 				_react2.default.createElement(
-					'p',
-					null,
-					'Starwars API - Routes'
-				),
-				_react2.default.createElement(
 					_reactRouter.Router,
 					null,
-					_react2.default.createElement(
-						_reactRouter.Route,
-						{ path: 'alderaan', component: _alderaan2.default },
-						_react2.default.createElement(_reactRouter.Route, { path: 'leia', component: _leia2.default })
-					)
-				)
+					_react2.default.createElement(_reactRouter.Route, { path: '/', component: _planetBrowser2.default }),
+					_react2.default.createElement(_reactRouter.Route, { img: 'x', path: 'hoth', component: planetWrapper })
+				),
+				_react2.default.createElement(_planetViewer2.default, null)
 			);
 		}
 	});
@@ -27121,49 +27157,63 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _planets = __webpack_require__(260);
+	
+	var _planets2 = _interopRequireDefault(_planets);
+	
 	var _reactRouter = __webpack_require__(172);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = _react2.default.createClass({
-		displayName: 'alderaan',
-		getInitialState: function getInitialState() {
-			return { showCharacter: false };
-		},
-		render: function render() {
-			return _react2.default.createElement(
-				'div',
-				null,
-				_react2.default.createElement('img', { className: 'planet-image', src: './app/component/alderaan/alderaan.jpg' }),
-				_react2.default.createElement(
-					'p',
-					null,
-					'Alderaan'
-				),
-				_react2.default.createElement(
-					_reactRouter.Link,
-					{ to: 'alderaan/leia' },
-					_react2.default.createElement(
-						'p',
-						{ onClick: this.handleClick },
-						'Show/Hide Character'
-					)
-				),
-				this.state.showCharacter ? this.props.children : null
-			);
-		},
-		handleClick: function handleClick() {
-			this.setState({
-				showCharacter: !this.state.showCharacter
-			});
-		}
+	  displayName: 'planetBrowser',
+	  getInitialState: function getInitialState() {
+	    return {
+	      planets: _planets2.default,
+	      selectedLink: 'test'
+	    };
+	  },
+	  render: function render() {
+	    var _this = this;
+	
+	    return _react2.default.createElement(
+	      'div',
+	      null,
+	      _react2.default.createElement(
+	        'p',
+	        { className: 'pb-title' },
+	        'Planet Browser'
+	      ),
+	      _react2.default.createElement(
+	        'p',
+	        null,
+	        this.state.selectedLink
+	      ),
+	      _react2.default.createElement(
+	        'select',
+	        { className: 'planet-selector' },
+	        this.state.planets.map(function (value, index) {
+	          return _react2.default.createElement(
+	            'option',
+	            { onChange: _this.handleChange, key: index, value: value.name.toLowerCase() },
+	            value.name
+	          );
+	        })
+	      )
+	    );
+	  },
+	  handleChange: function handleChange(e) {
+	    this.setState({
+	      selectedLink: e.target.value
+	    });
+	  }
 	});
 
 /***/ },
@@ -27187,14 +27237,15 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = _react2.default.createClass({
-		displayName: 'leia',
+		displayName: 'Character',
 		getInitialState: function getInitialState() {
 			return { leiaInfo: '' };
 		},
 		componentWillMount: function componentWillMount() {
 			var _this = this;
 	
-			_axios2.default.get('http://swapi.co/api/people/5').then(function (r) {
+			console.log(this.props.character);
+			_axios2.default.get('http://swapi.co/api/people/' + this.props.character).then(function (r) {
 				_this.setState({ leiaInfo: r.data });
 			});
 		},
@@ -28556,6 +28607,85 @@
 	  };
 	};
 
+
+/***/ },
+/* 259 */,
+/* 260 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var planets = [{
+	  name: 'Alderaan',
+	  character: '5'
+	}, {
+	  name: 'Aquilae',
+	  character: '1'
+	}, {
+	  name: 'Bespin',
+	  character: '1'
+	}, {
+	  name: 'Dagobah',
+	  character: '1'
+	}, {
+	  name: 'Hoth',
+	  character: '1',
+	  img: 'http://google.com/'
+	}, {
+	  name: 'Tatooine',
+	  character: '1'
+	}, {
+	  name: 'Utapau',
+	  character: '1'
+	}, {
+	  name: 'Yavin',
+	  character: '1'
+	}];
+	
+	exports.default = planets;
+
+/***/ },
+/* 261 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = _react2.default.createClass({
+	  displayName: 'planetViewer',
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      null,
+	      _react2.default.createElement(
+	        'p',
+	        null,
+	        ' ',
+	        this.props.img,
+	        ' '
+	      ),
+	      _react2.default.createElement(
+	        'p',
+	        null,
+	        ' ',
+	        this.props.name,
+	        ' '
+	      )
+	    );
+	  }
+	});
 
 /***/ }
 /******/ ]);

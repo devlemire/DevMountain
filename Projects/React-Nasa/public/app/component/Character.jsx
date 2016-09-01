@@ -6,7 +6,8 @@ export default React.createClass({
 		return ({leiaInfo: ''})
 	},
 	componentWillMount() {
-		axios.get(`http://swapi.co/api/people/5`).then(r => {
+		console.log(this.props.character);
+		axios.get(`http://swapi.co/api/people/${this.props.character}`).then(r => {
 			this.setState({leiaInfo: r.data});
 		})
 	},

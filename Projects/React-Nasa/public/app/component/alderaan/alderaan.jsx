@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
+import Character from '../Character.jsx';
 
 export default React.createClass({
 	getInitialState() {
@@ -14,7 +15,7 @@ export default React.createClass({
 					<p onClick={this.handleClick}>Show/Hide Character</p>
 				</Link>
 				{this.state.showCharacter
-					? this.props.children
+					? <Character character="5"/>
 					: null}
 			</div>
 		)
